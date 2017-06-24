@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_group1">
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:icon="@drawable/ic_home_white_24dp"/>
+        <item
+            android:id="@+id/posts"
+            android:title="posts"
+            android:icon="@drawable/ic_posts"/>
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_group3">
+        <item
+            android:id="@+id/myAccount"
+            android:icon="@drawable/ic_person_white_48dp"
+            android:title="MyAccount" />
+        <item
+            android:icon="@drawable/ic_exit_to_app_white_24dp"
+            android:id="@+id/user_logout"
+            android:title="Logout" />
+    </group>
+
+</menu>

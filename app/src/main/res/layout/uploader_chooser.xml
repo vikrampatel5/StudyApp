@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+
+        android:id="@+id/chooseFileText"
+        android:layout_marginTop="40px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textColor="@color/colorAccent"
+        android:text="Choose a file to upload"
+        />
+
+
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/buttonChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_margin="50px"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text="Choose"
+        android:textColor="@color/white" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight=".1" />
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_margin="50px"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text="Upload"
+        android:textColor="@color/white" />
+
+</LinearLayout>
+
+</LinearLayout>

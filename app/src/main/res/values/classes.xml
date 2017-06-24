@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ClassMCA">
+        <item>MCA I</item>
+        <item>MCA II</item>
+        <item>MCA III</item>
+    </string-array>
+
+</resources>

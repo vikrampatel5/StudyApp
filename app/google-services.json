@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "141815286903",
+    "firebase_url": "https://studyapp-1790a.firebaseio.com",
+    "project_id": "studyapp-1790a",
+    "storage_bucket": "studyapp-1790a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141815286903:android:65b571f70aac21d5",
+        "android_client_info": {
+          "package_name": "com.vikram.studyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141815286903-8mnjhv7eclsbprdfmkvmctomcanfr9ei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vikram.studyapp",
+            "certificate_hash": "ebc1b43d4d7430457fc70f58ee8e55bf3e4d77d9"
+          }
+        },
+        {
+          "client_id": "141815286903-vf7l8vl4pk2on5rlk2ctf0qp6mhguv47.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYGyouGbKsOjj9e5hzXYfwheLAS2iPv7E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141815286903-vf7l8vl4pk2on5rlk2ctf0qp6mhguv47.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
