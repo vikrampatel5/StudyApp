@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +60,7 @@ public class HomeActivity extends AppCompatActivity{
     private Uri downloadUrl;
     private TextView chooseFileText;
     private ImageView imageView;
+    private EditText fileNameUpload;
 
     private static final int FILE_SELECT_CODE= 0;
     public final static String EXTRA_ACCEPTED_FILE_EXTENSIONS = "accepted_file_extensions";
@@ -73,6 +75,7 @@ public class HomeActivity extends AppCompatActivity{
         choose = (Button)findViewById(R.id.buttonChoose);
         upload = (Button)findViewById(R.id.buttonUpload);
         imageView = (ImageView)findViewById(R.id.imageViewH);
+        fileNameUpload = (EditText)findViewById(R.id.name_image_upload);
         chooseFileText = (TextView)findViewById(R.id.chooseFileText);
 
 
@@ -128,10 +131,12 @@ public class HomeActivity extends AppCompatActivity{
                                     progressDialog.dismiss();
                                     Toast.makeText(HomeActivity.this, "File Uploaded!!", Toast.LENGTH_SHORT).show();
                                     //Storing Image Details
-                                    Upload upload = new Upload("",taskSnapshot.getDownloadUrl().toString());
+                                    Upload upload = new Upload(fileNameUpload.getText().toString().trim(),taskSnapshot.getDownloadUrl().toString());
                                     //adding an upload to firebase database
                                     String uploadId = mDatabase.push().getKey();
                                     mDatabase.child(uploadId).setValue(upload);
+
+                                    imageView.setImageBitmap(null);
                                  }
                             })
                             .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -183,7 +188,6 @@ public class HomeActivity extends AppCompatActivity{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            chooseFileText.setText(filePath.getPath());
         }
     }
 
