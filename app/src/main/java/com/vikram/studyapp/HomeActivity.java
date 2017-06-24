@@ -29,6 +29,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -60,7 +62,7 @@ public class HomeActivity extends AppCompatActivity{
 
     private static final int FILE_SELECT_CODE= 0;
     public final static String EXTRA_ACCEPTED_FILE_EXTENSIONS = "accepted_file_extensions";
-
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,7 @@ public class HomeActivity extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("uploads");
 
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
         SharedPreferences.Editor editor = settings.edit();
@@ -124,10 +127,12 @@ public class HomeActivity extends AppCompatActivity{
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                     progressDialog.dismiss();
                                     Toast.makeText(HomeActivity.this, "File Uploaded!!", Toast.LENGTH_SHORT).show();
-
-
-
-                                }
+                                    //Storing Image Details
+                                    Upload upload = new Upload("",taskSnapshot.getDownloadUrl().toString());
+                                    //adding an upload to firebase database
+                                    String uploadId = mDatabase.push().getKey();
+                                    mDatabase.child(uploadId).setValue(upload);
+                                 }
                             })
                             .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                                 @Override

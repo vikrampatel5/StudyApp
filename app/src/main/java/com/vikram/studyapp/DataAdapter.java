@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Vikram on 6/23/2017.
@@ -19,11 +20,11 @@ import java.util.ArrayList;
 
 class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyHolder> {
 
-    private ArrayList<PostData> myData;
+    private List<Upload> uploads;
     private Context context;
 
-    public DataAdapter(ArrayList<PostData> myData, Context context) {
-        this.myData = myData;
+    public DataAdapter(List<Upload> uploads, Context context) {
+        this.uploads = uploads;
         this.context = context;
     }
 
@@ -36,16 +37,17 @@ class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(MyHolder myHolder, int i) {
-        myHolder.title.setText(myData.get(i).getImage_title());
+        Upload upload = uploads.get(i);
+        myHolder.title.setText(upload.getImageName());
         Glide.with(context)
-                .load(myData.get(i).getImage_url())
+                .load(upload.getImageUrl())
                 .into(myHolder.image);
 
     }
 
     @Override
     public int getItemCount() {
-        return myData.size();
+        return uploads.size();
     }
 
     public class MyHolder extends RecyclerView.ViewHolder {
